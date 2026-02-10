@@ -1,56 +1,55 @@
-Servidor Web y ERP Odoo 16
-Proyecto – Rodriguez Solutions
-Índice
+# Servidor Web y ERP Odoo 16  
+## Proyecto – Rodriguez Solutions
 
-Objetivo del Proyecto
+---
 
-Arquitectura del Servidor
+## Índice
 
-Acceso Remoto SSH
+- Objetivo del Proyecto  
+- Arquitectura del Servidor  
+- Acceso Remoto SSH  
+- Servidor Web Apache  
+- Configuración DNS  
+- Implementación Odoo 16  
+- Problemas y Soluciones  
+- Evidencias  
+- Descarga del Manual  
+- Conclusión  
 
-Servidor Web Apache
+---
 
-Configuración DNS
-
-Implementación Odoo 16
-
-Problemas y Soluciones
-
-Evidencias
-
-Descarga del Manual
-
-Conclusión
-
-Objetivo del Proyecto
+## Objetivo del Proyecto
 
 Implementar un servidor Linux empresarial capaz de:
 
-Publicar un sitio web mediante Apache
-
-Resolver un dominio local mediante DNS
-
-Permitir administración remota segura mediante SSH
-
-Ejecutar el ERP Odoo 16 para uso empresarial
+- Publicar un sitio web mediante Apache
+- Resolver un dominio local mediante DNS
+- Permitir administración remota segura mediante SSH
+- Ejecutar el ERP Odoo 16 para uso empresarial
 
 Dominio configurado:
+http://www.rodriguez.local/
 
-http://www.rodriguez.local
+---
 
-Arquitectura del Servidor
-Servicio	Puerto	Función
-SSH	22	Acceso remoto
-Apache	80	Servidor Web
-DNS	53	Resolución de dominio
-Odoo	8069	ERP Empresarial
-Acceso Remoto SSH
+## Arquitectura del Servidor
+
+| Servicio | Puerto | Función |
+|---|---|---|
+| SSH | 22 | Acceso remoto |
+| Apache | 80 | Servidor Web |
+| DNS | 53 | Resolución de dominio |
+| Odoo | 8069 | ERP Empresarial |
+
+---
+
+## Acceso Remoto SSH
 
 Permite la administración remota del servidor sin desactivar el firewall.
 
-Conexión al servidor
+### Conexión al servidor
+```bash
 ssh usuario@IP_SERVIDOR
-
 Verificar estado del servicio
 sudo systemctl status ssh
 
@@ -68,9 +67,7 @@ Directorio web
 
 Acceso desde navegador:
 
-http://IP_SERVIDOR
-
-Configuración DNS
+http://IP_SERVIDORConfiguración DNS
 
 Se configuró un dominio local para acceder al servidor mediante nombre.
 
@@ -103,9 +100,6 @@ Ejecución de Odoo
 ./odoo-bin
 
 Problemas y Soluciones
-
-Durante la implementación surgieron inconvenientes técnicos.
-
 Problemas detectados
 
 Conflictos con Python 3
@@ -138,23 +132,30 @@ DNS resolviendo correctamente
 
 Evidencias
 Funcionamiento del servidor web Apache
-
-Ruta sugerida en el repositorio:
-
 docs/img/apache_funcionando.png
 
 Funcionamiento de Odoo
-
-Ruta sugerida:
-
 docs/img/odoo_funcionando.png
 
 Resolución del dominio DNS
-
-Ruta sugerida:
-
 docs/img/dns_funcionando.png
 
 Descarga del Manual
 
 Manual técnico completo disponible en:
+
+docs/Manual_Final_Rodriguez_Solutions.pdf
+
+Conclusión
+
+Se implementó una infraestructura Linux funcional integrando múltiples servicios bajo un mismo dominio local.
+
+Servicios implementados:
+
+Servidor web Apache
+
+DNS local
+
+Acceso remoto SSH
+
+ERP Odoo 16
