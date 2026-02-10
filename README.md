@@ -143,3 +143,10 @@ Odoo accesible desde el dominio
 
 DNS resolviendo correctamente
 |<img width="886" height="222" alt="image" src="https://github.com/user-attachments/assets/d1bfd530-5f1b-4ba9-b3d5-888b0b0abaef" />|
+
+## Descarga del manual:[Manual_Examen.pdf](https://github.com/user-attachments/files/25212397/Manual_Examen.pdf)
+ 
+# Conclusion:
+La culminación de este proyecto supuso la puesta en práctica de una infraestructura básica de servicios en un servidor Linux mediante DNS, un servidor web Apache, acceso remoto por SSH y el sistema ERP Odoo 16 en el dominio **[www.rodriguez.local](http://www.rodriguez.local)**, lo que supuesto facilitar que los recursos de servicios tuviesen acceso por un nombre de dominio y no por dirección IP como si de un entorno empresarial real se tratase.
+Durante la implementación del servidor Odoo surgieron dificultades con dependencias de Python, el archivo *requirements.txt* y la activación del entorno virtual de Odoo, de forma que se pudo trabajar también en las competencias de resolución de problemas y administración de sistemas Linux.
+Las pruebas desde equipos cliente y dispositivos móviles confirmaron que la arquitectura cliente-servidor se comportaba como se esperaba. En definitiva, el proyecto muestra lo posible que resulta desplegar y administrar diversos servicios integrados dentro de una única red
