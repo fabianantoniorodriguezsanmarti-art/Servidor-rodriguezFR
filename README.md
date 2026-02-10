@@ -1,200 +1,166 @@
-# Servidor-rodriguezFR
-Todo lo instalado,  con evidencia, y capturas de cada uno de los comandos
-centos-rodriguez/
-# Servidor CentOS - Fabian Rodriguez
+Implementación de Servidor Web + Odoo
+Rodriguez Solutions
+Presentación del Proyecto
 
-Este repositorio documenta la implementación de un servidor CentOS con los siguientes servicios:
+Este proyecto documenta la instalación y configuración de un servidor Linux destinado a alojar servicios web empresariales, incluyendo un entorno ERP Odoo accesible mediante dominio local.
 
-## Servicios implementados
-Información general
+El objetivo principal fue implementar una infraestructura funcional que permita:
 
-Este documento describe la configuración básica del servidor Linux, instalación de servicios principales y problemas encontrados durante la implementación del entorno web.
+Acceso remoto seguro
 
-Servicios instalados:
+Publicación de sitio web mediante Apache
 
-Apache (servidor web)
+Configuración de dominio local (DNS)
 
-Odoo (ERP)
+Implementación del ERP Odoo 16
 
-SSH (acceso remoto)
+Arquitectura del Servidor
 
-Configuración de dominio local
+Servicios implementados:
 
-Acceso al servidor (SSH)
+Servicio	Función
+SSH	Acceso remoto seguro
+Apache	Servidor web
+DNS local	Resolución de dominio
+Odoo 16	ERP empresarial
 
-El acceso remoto se realiza mediante SSH.
-
-Conexión desde cliente Linux / Windows (PowerShell / Git Bash)
-ssh usuario@ip_del_servidor
-
-
-Ejemplo:
-
-ssh rodriguez@192.168.1.10
-
-Verificar estado del servicio SSH
-sudo systemctl status ssh
-
-Reiniciar SSH
-sudo systemctl restart ssh
-
-Instalación y configuración de Apache
-Instalación
-sudo apt update
-sudo apt install apache2 -y
-
-Verificar estado
-sudo systemctl status apache2
-
-Habilitar Apache al iniciar
-sudo systemctl enable apache2
-
-Acceso al sitio web
-
-Abrir navegador:
-
-http://IP_DEL_SERVIDOR
-
-
-Ruta del sitio web por defecto:
-
-/var/www/html
-
-Ver archivos del sitio
-
-cd /var/www/html
-ls
-
-
-Archivo principal:
-
-index.html
-
-Configuración de dominio local
-
-Se configuró el dominio local:
+Dominio configurado:
 
 http://www.rodriguez.local
 
-Archivo hosts (cliente)
+Acceso remoto – SSH
 
-En la máquina cliente se agregó:
+Permite administrar el servidor de forma segura desde otra máquina.
 
-Linux:
-
-sudo nano /etc/hosts
+ssh usuario@ip_servidor
 
 
-Windows:
+Verificación del servicio:
 
-C:\Windows\System32\drivers\etc\hosts
+sudo systemctl status ssh
+
+Servidor Web – Apache
+
+Instalación:
+
+sudo apt update
+sudo apt install apache2 -y
 
 
-Agregar:
+Verificación:
+
+sudo systemctl status apache2
+
+
+Directorio web:
+
+/var/www/html
+
+
+Acceso desde navegador:
+
+http://IP_SERVIDOR
+
+Configuración DNS Local
+
+Se configuró el dominio:
+
+www.rodriguez.local
+
+
+Archivo hosts del cliente:
 
 192.168.1.10   www.rodriguez.local
 
-⚙️ Instalación de Odoo
-Dependencias básicas
+
+Esto permite acceder al servidor usando nombre de dominio.
+
+⚙️ Implementación de Odoo 16
+Instalación base
 sudo apt install python3-pip python3-venv git -y
 
-Crear usuario para Odoo
-sudo adduser --system --home=/opt/odoo --group odoo
 
-Descargar Odoo
-sudo su - odoo
+Clonación del repositorio:
+
 git clone https://www.github.com/odoo/odoo --depth 1 --branch 16.0 /opt/odoo/odoo
 
 Entorno virtual Python
 
-Se creó un entorno virtual para Odoo:
+Creación del entorno:
 
-cd /opt/odoo
 python3 -m venv venv
 
 
-Activar entorno:
+Activación:
 
 source venv/bin/activate
 
-Instalación de dependencias
-pip3 install -r odoo/requirements.txt
 
-Problemas encontrados con Odoo
+Instalación de dependencias:
 
-Durante la instalación se presentaron inconvenientes importantes:
+pip install -r odoo/requirements.txt
 
-Problemas con Python 3
+Problemas encontrados y solución
 
-Se detectaron conflictos entre versiones de Python y librerías requeridas por Odoo.
+Durante la instalación de Odoo surgieron dificultades importantes:
 
-Problemas específicos:
+Problemas detectados
 
-Errores al instalar dependencias del archivo requirements.txt
+Conflictos con Python 3
 
-Librerías incompatibles o faltantes
+Fallos al instalar requirements.txt
 
-Fallos por entorno virtual no activado correctamente
+Odoo no iniciaba correctamente
 
-Problema crítico detectado
-
-El error principal se debía a:
-
-No activar el entorno virtual antes de ejecutar Odoo
-
-Dependencias no instaladas dentro del entorno
+Entorno virtual no activado
 
 Solución aplicada
 
-1️Activar entorno virtual:
+Activación correcta del entorno virtual
 
-source /opt/odoo/venv/bin/activate
+Reinstalación de dependencias
 
+Reinicio de servicios Apache y Odoo
 
-2️Reinstalar dependencias:
+Tras la corrección, el sistema quedó funcional.
 
-pip install -r /opt/odoo/odoo/requirements.txt
+Resultado final del sistema
 
+Servicios funcionando correctamente:
 
-3️Ejecutar Odoo nuevamente.
+✔ Apache activo
 
-🚨 Error del servidor (Service Unavailable)
+✔ Dominio local resolviendo
 
-Se presentó el mensaje:
+✔ Odoo accesible desde navegador
 
-Service Unavailable
-The server is temporarily unable to service your request
-
-Posibles causas
-
-Apache saturado o detenido
-
-Odoo no estaba ejecutándose
-
-Error de configuración del virtual host
-
-Tras revisar servicios y reiniciar Apache y Odoo, el sitio quedó accesible.
-
-Estado actual
-
-Servicios operativos:
-
-Apache funcionando
-
-SSH activo
-
-Odoo accesible desde:
+Acceso final:
 
 http://www.rodriguez.local
 
-Notas finales
+Evidencias de funcionamiento
+Funcionamiento HTTP (Apache)
 
-Se recomienda:
+Insertar captura aquí
 
-Mantener actualizado el entorno virtual
+docs/img/apache_funcionando.png
 
-Documentar cambios futuros
+Funcionamiento Odoo
 
-Realizar backups periódicos del servidor
+Insertar captura aquí
 
-Si quieres, puedo hacer la versión en README profesional con índice automático o dividirla por carpetas (docs/, apache.md, odoo.md, etc.).
+docs/img/odoo_funcionando.png
+
+Resolución DNS
+
+Insertar captura aquí
+
+docs/img/dns_funcionando.png
+
+Descarga del Manual Completo
+
+El manual técnico completo del proyecto se encuentra disponible en el siguiente archivo:
+
+Manual en PDF
+
+docs/Manual_Final_Rodriguez_Solutions.pdf
