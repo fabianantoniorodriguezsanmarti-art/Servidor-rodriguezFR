@@ -6,57 +6,194 @@ centos-rodriguez/
 Este repositorio documenta la implementación de un servidor CentOS con los siguientes servicios:
 
 ## Servicios implementados
+Información general
 
-- **DNS:** Dominio local `rodriguez.local`  
-  - Configuración en: `DNS/named.conf` y `DNS/rodriguez.local.zone`  
-  - Evidencia: `Capturas/dns.png`  
+Este documento describe la configuración básica del servidor Linux, instalación de servicios principales y problemas encontrados durante la implementación del entorno web.
 
-- **Apache:** Servidor web accesible desde `www.rodriguez.local`  
-  - Página de prueba: `Apache/index.html`  
-  - Evidencia: `Capturas/apache.png`  
+Servicios instalados:
 
-- **Odoo:** ERP accesible bajo el dominio `rodriguez.local`  
-  - Configuración: `Odoo/configuracion.txt`  
-  - Evidencia: `Capturas/odoo.png`  
+Apache (servidor web)
 
----
+Odoo (ERP)
 
-## Evidencia y capturas
+SSH (acceso remoto)
 
-Se incluyen capturas de pantalla que muestran los servicios funcionando correctamente:
+Configuración de dominio local
 
-| Servicio | Captura |
-|----------|---------|
-| DNS      | ![DNS] <img width="1743" height="437" alt="image" src="https://github.com/user-attachments/assets/6f85862a-cda8-46cf-b5e1-ab127d48cc83" /> 
- |
-| Apache   | ![Apache] | <img width="779" height="526" alt="image" src="https://github.com/user-attachments/assets/1c572a03-1b85-48ac-87c7-100fe8f41da0" /> 
- |
-| Odoo     | ![Odoo] | <img width="1728" height="380" alt="image" src="https://github.com/user-attachments/assets/43a975a6-a7c6-4dbe-87e2-ae0c86ec48a3" /> 
- |
+🔐 Acceso al servidor (SSH)
 
----
+El acceso remoto se realiza mediante SSH.
 
-## Manual de Usuario
+Conexión desde cliente Linux / Windows (PowerShell / Git Bash)
+ssh usuario@ip_del_servidor
 
-El manual PDF contiene:
 
-- Diagrama de topología de red  
-- Pasos de configuración de cada servicio  
-- Cómo acceder desde cliente y dispositivo móvil  
-- Seguridad y administración remota vía SSH  
+Ejemplo:
 
-**Descargar PDF:** [ManualUsuario.pdf](ManualUsuario.pdf)
+ssh rodriguez@192.168.1.10
 
----
+Verificar estado del servicio SSH
+sudo systemctl status ssh
 
-## Enlace público del repositorio
+Reiniciar SSH
+sudo systemctl restart ssh
 
-Accede al repositorio completo con todos los archivos y evidencia aquí:  
-[https://github.com/TUUSUARIO/Servidor-rodriguezFR](https://github.com/TUUSUARIO/Servidor-rodriguezFR)
+🌐 Instalación y configuración de Apache
+Instalación
+sudo apt update
+sudo apt install apache2 -y
 
----
+Verificar estado
+sudo systemctl status apache2
 
-## Notas adicionales
+Habilitar Apache al iniciar
+sudo systemctl enable apache2
 
-- Todos los servicios se han configurado en CentOS con firewall activo y administración remota vía SSH.  
-- Este repositorio respalda el examen práctico y sirve como guía para replicar la configuración.
+Acceso al sitio web
+
+Abrir navegador:
+
+http://IP_DEL_SERVIDOR
+
+
+Ruta del sitio web por defecto:
+
+/var/www/html
+
+📁 Ver archivos del sitio
+cd /var/www/html
+ls
+
+
+Archivo principal:
+
+index.html
+
+🌍 Configuración de dominio local
+
+Se configuró el dominio local:
+
+http://www.rodriguez.local
+
+Archivo hosts (cliente)
+
+En la máquina cliente se agregó:
+
+Linux:
+
+sudo nano /etc/hosts
+
+
+Windows:
+
+C:\Windows\System32\drivers\etc\hosts
+
+
+Agregar:
+
+192.168.1.10   www.rodriguez.local
+
+⚙️ Instalación de Odoo
+Dependencias básicas
+sudo apt install python3-pip python3-venv git -y
+
+Crear usuario para Odoo
+sudo adduser --system --home=/opt/odoo --group odoo
+
+Descargar Odoo
+sudo su - odoo
+git clone https://www.github.com/odoo/odoo --depth 1 --branch 16.0 /opt/odoo/odoo
+
+🐍 Entorno virtual Python
+
+Se creó un entorno virtual para Odoo:
+
+cd /opt/odoo
+python3 -m venv venv
+
+
+Activar entorno:
+
+source venv/bin/activate
+
+📦 Instalación de dependencias
+pip3 install -r odoo/requirements.txt
+
+⚠️ Problemas encontrados con Odoo
+
+Durante la instalación se presentaron inconvenientes importantes:
+
+Problemas con Python 3
+
+Se detectaron conflictos entre versiones de Python y librerías requeridas por Odoo.
+
+Problemas específicos:
+
+Errores al instalar dependencias del archivo requirements.txt
+
+Librerías incompatibles o faltantes
+
+Fallos por entorno virtual no activado correctamente
+
+Problema crítico detectado
+
+El error principal se debía a:
+
+No activar el entorno virtual antes de ejecutar Odoo
+
+Dependencias no instaladas dentro del entorno
+
+Solución aplicada
+
+1️⃣ Activar entorno virtual:
+
+source /opt/odoo/venv/bin/activate
+
+
+2️⃣ Reinstalar dependencias:
+
+pip install -r /opt/odoo/odoo/requirements.txt
+
+
+3️⃣ Ejecutar Odoo nuevamente.
+
+🚨 Error del servidor (Service Unavailable)
+
+Se presentó el mensaje:
+
+Service Unavailable
+The server is temporarily unable to service your request
+
+Posibles causas
+
+Apache saturado o detenido
+
+Odoo no estaba ejecutándose
+
+Error de configuración del virtual host
+
+Tras revisar servicios y reiniciar Apache y Odoo, el sitio quedó accesible.
+
+✅ Estado actual
+
+Servicios operativos:
+
+Apache funcionando
+
+SSH activo
+
+Odoo accesible desde:
+
+http://www.rodriguez.local
+
+📌 Notas finales
+
+Se recomienda:
+
+Mantener actualizado el entorno virtual
+
+Documentar cambios futuros
+
+Realizar backups periódicos del servidor
+
+Si quieres, puedo hacer la versión en README profesional con índice automático o dividirla por carpetas (docs/, apache.md, odoo.md, etc.).
