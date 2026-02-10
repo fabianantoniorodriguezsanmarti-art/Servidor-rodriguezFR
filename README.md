@@ -1,59 +1,68 @@
-Implementación de Servidor Web + Odoo
-Rodriguez Solutions
-Presentación del Proyecto
+Servidor Web y ERP Odoo 16
+Proyecto – Rodriguez Solutions
+Índice
 
-Este proyecto documenta la instalación y configuración de un servidor Linux destinado a alojar servicios web empresariales, incluyendo un entorno ERP Odoo accesible mediante dominio local.
-
-El objetivo principal fue implementar una infraestructura funcional que permita:
-
-Acceso remoto seguro
-
-Publicación de sitio web mediante Apache
-
-Configuración de dominio local (DNS)
-
-Implementación del ERP Odoo 16
+Objetivo del Proyecto
 
 Arquitectura del Servidor
 
-Servicios implementados:
+Acceso Remoto SSH
 
-Servicio	Función
-SSH	Acceso remoto seguro
-Apache	Servidor web
-DNS local	Resolución de dominio
-Odoo 16	ERP empresarial
+Servidor Web Apache
+
+Configuración DNS
+
+Implementación Odoo 16
+
+Problemas y Soluciones
+
+Evidencias
+
+Descarga del Manual
+
+Conclusión
+
+Objetivo del Proyecto
+
+Implementar un servidor Linux empresarial capaz de:
+
+Publicar un sitio web mediante Apache
+
+Resolver un dominio local mediante DNS
+
+Permitir administración remota segura mediante SSH
+
+Ejecutar el ERP Odoo 16 para uso empresarial
 
 Dominio configurado:
 
 http://www.rodriguez.local
 
-Acceso remoto – SSH
+Arquitectura del Servidor
+Servicio	Puerto	Función
+SSH	22	Acceso remoto
+Apache	80	Servidor Web
+DNS	53	Resolución de dominio
+Odoo	8069	ERP Empresarial
+Acceso Remoto SSH
 
-Permite administrar el servidor de forma segura desde otra máquina.
+Permite la administración remota del servidor sin desactivar el firewall.
 
-ssh usuario@ip_servidor
+Conexión al servidor
+ssh usuario@IP_SERVIDOR
 
-
-Verificación del servicio:
-
+Verificar estado del servicio
 sudo systemctl status ssh
 
-Servidor Web – Apache
-
-Instalación:
-
+Servidor Web Apache
+Instalación
 sudo apt update
 sudo apt install apache2 -y
 
-
-Verificación:
-
+Verificación del servicio
 sudo systemctl status apache2
 
-
-Directorio web:
-
+Directorio web
 /var/www/html
 
 
@@ -61,106 +70,91 @@ Acceso desde navegador:
 
 http://IP_SERVIDOR
 
-Configuración DNS Local
+Configuración DNS
 
-Se configuró el dominio:
+Se configuró un dominio local para acceder al servidor mediante nombre.
+
+Dominio creado:
 
 www.rodriguez.local
 
 
-Archivo hosts del cliente:
+Configuración en cliente:
 
-192.168.1.10   www.rodriguez.local
+192.168.0.103   www.rodriguez.local
 
-
-Esto permite acceder al servidor usando nombre de dominio.
-
-⚙️ Implementación de Odoo 16
-Instalación base
+Implementación Odoo 16
+Instalación de dependencias
 sudo apt install python3-pip python3-venv git -y
 
-
-Clonación del repositorio:
-
+Clonación del repositorio
 git clone https://www.github.com/odoo/odoo --depth 1 --branch 16.0 /opt/odoo/odoo
 
-Entorno virtual Python
-
-Creación del entorno:
-
+Creación del entorno virtual
 python3 -m venv venv
 
-
-Activación:
-
+Activación del entorno virtual
 source venv/bin/activate
 
-
-Instalación de dependencias:
-
+Instalación de dependencias
 pip install -r odoo/requirements.txt
 
-Problemas encontrados y solución
+Ejecución de Odoo
+./odoo-bin
 
-Durante la instalación de Odoo surgieron dificultades importantes:
+Problemas y Soluciones
+
+Durante la implementación surgieron inconvenientes técnicos.
 
 Problemas detectados
 
 Conflictos con Python 3
 
-Fallos al instalar requirements.txt
+Errores al instalar dependencias desde requirements.txt
 
 Odoo no iniciaba correctamente
 
-Entorno virtual no activado
+Entorno virtual no activado correctamente
 
-Solución aplicada
+Error Apache: Service Unavailable
 
-Activación correcta del entorno virtual
+Soluciones aplicadas
+
+Activación correcta del entorno virtual Python
 
 Reinstalación de dependencias
 
-Reinicio de servicios Apache y Odoo
+Configuración de Apache como proxy hacia Odoo
 
-Tras la corrección, el sistema quedó funcional.
+Reinicio y verificación de servicios
 
-Resultado final del sistema
+Resultado final:
 
-Servicios funcionando correctamente:
+Apache funcionando correctamente
 
-✔ Apache activo
+Odoo accesible desde el dominio
 
-✔ Dominio local resolviendo
+DNS resolviendo correctamente
 
-✔ Odoo accesible desde navegador
+Evidencias
+Funcionamiento del servidor web Apache
 
-Acceso final:
-
-http://www.rodriguez.local
-
-Evidencias de funcionamiento
-Funcionamiento HTTP (Apache)
-
-Insertar captura aquí
+Ruta sugerida en el repositorio:
 
 docs/img/apache_funcionando.png
 
-Funcionamiento Odoo
+Funcionamiento de Odoo
 
-Insertar captura aquí
+Ruta sugerida:
 
 docs/img/odoo_funcionando.png
 
-Resolución DNS
+Resolución del dominio DNS
 
-Insertar captura aquí
+Ruta sugerida:
 
 docs/img/dns_funcionando.png
 
-Descarga del Manual Completo
+Descarga del Manual
 
-El manual técnico completo del proyecto se encuentra disponible en el siguiente archivo:
-
-Manual en PDF
-
-docs/Manual_Final_Rodriguez_Solutions.pdf
+Manual técnico completo disponible en:
