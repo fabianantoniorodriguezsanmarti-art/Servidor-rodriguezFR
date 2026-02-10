@@ -112,7 +112,7 @@ Ejecución de Odoo
 ## Problemas y Soluciones
 ## Problemas detectados
 
-Conflictos con Python 3
+&nbsp;Conflictos con Python 3
 
 Errores al instalar dependencias desde requirements.txt
 
@@ -120,17 +120,17 @@ Odoo no iniciaba correctamente
 
 Entorno virtual no activado correctamente
 
-Error Apache: Service Unavailable
+Error Apache: Service Unavailable &nbsp;
 
 # Soluciones aplicadas
 
-Activación correcta del entorno virtual Python
+&nbsp; Activación correcta del entorno virtual Python
 
 Reinstalación de dependencias
 
 Configuración de Apache como proxy hacia Odoo
 
-Reinicio y verificación de servicios
+Reinicio y verificación de servicios &nbsp;
 
 # Resultado final:
 
@@ -147,6 +147,6 @@ DNS resolviendo correctamente
 ## Descarga del manual:[Manual_Examen.pdf](https://github.com/user-attachments/files/25212397/Manual_Examen.pdf)
  
 # Conclusion:
-La culminación de este proyecto supuso la puesta en práctica de una infraestructura básica de servicios en un servidor Linux mediante DNS, un servidor web Apache, acceso remoto por SSH y el sistema ERP Odoo 16 en el dominio **[www.rodriguez.local](http://www.rodriguez.local)**, lo que supuesto facilitar que los recursos de servicios tuviesen acceso por un nombre de dominio y no por dirección IP como si de un entorno empresarial real se tratase.
-Durante la implementación del servidor Odoo surgieron dificultades con dependencias de Python, el archivo *requirements.txt* y la activación del entorno virtual de Odoo, de forma que se pudo trabajar también en las competencias de resolución de problemas y administración de sistemas Linux.
-Las pruebas desde equipos cliente y dispositivos móviles confirmaron que la arquitectura cliente-servidor se comportaba como se esperaba. En definitiva, el proyecto muestra lo posible que resulta desplegar y administrar diversos servicios integrados dentro de una única red
+&nbsp; La culminación de este proyecto supuso la puesta en práctica de una infraestructura básica de servicios en un servidor Linux mediante DNS, un servidor web Apache, acceso remoto por SSH y el sistema ERP Odoo 16 en el dominio **[www.rodriguez.local](http://www.rodriguez.local)**, lo que supuesto facilitar que los recursos de servicios tuviesen acceso por un nombre de dominio y no por dirección IP como si de un entorno empresarial real se tratase. &nbsp;
+&nbsp; Durante la implementación del servidor Odoo surgieron dificultades con dependencias de Python, el archivo *requirements.txt* y la activación del entorno virtual de Odoo, de forma que se pudo trabajar también en las competencias de resolución de problemas y administración de sistemas Linux. &nbsp;
+Las pruebas desde equipos cliente y dispositivos móviles confirmaron que la arquitectura cliente-servidor se comportaba como se esperaba. En definitiva, el proyecto muestra lo posible que resulta desplegar y administrar diversos servicios integrados dentro de una única red &nbsp; 
