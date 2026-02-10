@@ -20,7 +20,7 @@ SSH (acceso remoto)
 
 Configuración de dominio local
 
-🔐 Acceso al servidor (SSH)
+Acceso al servidor (SSH)
 
 El acceso remoto se realiza mediante SSH.
 
@@ -38,7 +38,7 @@ sudo systemctl status ssh
 Reiniciar SSH
 sudo systemctl restart ssh
 
-🌐 Instalación y configuración de Apache
+Instalación y configuración de Apache
 Instalación
 sudo apt update
 sudo apt install apache2 -y
@@ -60,7 +60,8 @@ Ruta del sitio web por defecto:
 
 /var/www/html
 
-📁 Ver archivos del sitio
+Ver archivos del sitio
+
 cd /var/www/html
 ls
 
@@ -69,7 +70,7 @@ Archivo principal:
 
 index.html
 
-🌍 Configuración de dominio local
+Configuración de dominio local
 
 Se configuró el dominio local:
 
@@ -104,7 +105,7 @@ Descargar Odoo
 sudo su - odoo
 git clone https://www.github.com/odoo/odoo --depth 1 --branch 16.0 /opt/odoo/odoo
 
-🐍 Entorno virtual Python
+Entorno virtual Python
 
 Se creó un entorno virtual para Odoo:
 
@@ -116,10 +117,10 @@ Activar entorno:
 
 source venv/bin/activate
 
-📦 Instalación de dependencias
+Instalación de dependencias
 pip3 install -r odoo/requirements.txt
 
-⚠️ Problemas encontrados con Odoo
+Problemas encontrados con Odoo
 
 Durante la instalación se presentaron inconvenientes importantes:
 
@@ -145,17 +146,17 @@ Dependencias no instaladas dentro del entorno
 
 Solución aplicada
 
-1️⃣ Activar entorno virtual:
+1️Activar entorno virtual:
 
 source /opt/odoo/venv/bin/activate
 
 
-2️⃣ Reinstalar dependencias:
+2️Reinstalar dependencias:
 
 pip install -r /opt/odoo/odoo/requirements.txt
 
 
-3️⃣ Ejecutar Odoo nuevamente.
+3️Ejecutar Odoo nuevamente.
 
 🚨 Error del servidor (Service Unavailable)
 
@@ -174,7 +175,7 @@ Error de configuración del virtual host
 
 Tras revisar servicios y reiniciar Apache y Odoo, el sitio quedó accesible.
 
-✅ Estado actual
+Estado actual
 
 Servicios operativos:
 
@@ -186,7 +187,7 @@ Odoo accesible desde:
 
 http://www.rodriguez.local
 
-📌 Notas finales
+Notas finales
 
 Se recomienda:
 
