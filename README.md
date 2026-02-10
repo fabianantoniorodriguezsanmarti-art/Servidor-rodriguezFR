@@ -49,11 +49,6 @@ Permite la administración remota del servidor sin desactivar el firewall.
 
 ### Conexión al servidor
 ```bash
-ssh usuario@IP_SERVIDOR
-Verificar estado del servicio
-sudo systemctl status ssh
-
-Servidor Web Apache
 Instalación
 sudo apt update
 sudo apt install apache2 -y
@@ -67,7 +62,9 @@ Directorio web
 
 Acceso desde navegador:
 
-http://IP_SERVIDORConfiguración DNS
+http://IP_SERVIDOR
+
+Configuración DNS
 
 Se configuró un dominio local para acceder al servidor mediante nombre.
 
@@ -76,6 +73,19 @@ Dominio creado:
 www.rodriguez.local
 
 
+Configuración en cliente:
+
+192.168.0.103   www.rodriguez.local
+```
+## Configuración DNS
+
+Se configuró un dominio local para acceder al servidor mediante nombre.
+
+## Dominio creado:
+
+www.rodriguez.local
+
+```bash
 Configuración en cliente:
 
 192.168.0.103   www.rodriguez.local
@@ -99,63 +109,3 @@ pip install -r odoo/requirements.txt
 Ejecución de Odoo
 ./odoo-bin
 
-Problemas y Soluciones
-Problemas detectados
-
-Conflictos con Python 3
-
-Errores al instalar dependencias desde requirements.txt
-
-Odoo no iniciaba correctamente
-
-Entorno virtual no activado correctamente
-
-Error Apache: Service Unavailable
-
-Soluciones aplicadas
-
-Activación correcta del entorno virtual Python
-
-Reinstalación de dependencias
-
-Configuración de Apache como proxy hacia Odoo
-
-Reinicio y verificación de servicios
-
-Resultado final:
-
-Apache funcionando correctamente
-
-Odoo accesible desde el dominio
-
-DNS resolviendo correctamente
-
-Evidencias
-Funcionamiento del servidor web Apache
-docs/img/apache_funcionando.png
-
-Funcionamiento de Odoo
-docs/img/odoo_funcionando.png
-
-Resolución del dominio DNS
-docs/img/dns_funcionando.png
-
-Descarga del Manual
-
-Manual técnico completo disponible en:
-
-docs/Manual_Final_Rodriguez_Solutions.pdf
-
-Conclusión
-
-Se implementó una infraestructura Linux funcional integrando múltiples servicios bajo un mismo dominio local.
-
-Servicios implementados:
-
-Servidor web Apache
-
-DNS local
-
-Acceso remoto SSH
-
-ERP Odoo 16
