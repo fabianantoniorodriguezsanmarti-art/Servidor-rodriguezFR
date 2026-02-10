@@ -27,9 +27,12 @@ Se incluyen capturas de pantalla que muestran los servicios funcionando correcta
 
 | Servicio | Captura |
 |----------|---------|
-| DNS      | ![DNS](Capturas/dns.png) |
-| Apache   | ![Apache](Capturas/apache.png) |
-| Odoo     | ![Odoo](Capturas/odoo.png) |
+| DNS      | ![DNS]. <img width="1743" height="437" alt="image" src="https://github.com/user-attachments/assets/6f85862a-cda8-46cf-b5e1-ab127d48cc83" />
+ |
+| Apache   | ![Apache] <img width="779" height="526" alt="image" src="https://github.com/user-attachments/assets/1c572a03-1b85-48ac-87c7-100fe8f41da0" />
+ |
+| Odoo     | ![Odoo]<img width="1728" height="380" alt="image" src="https://github.com/user-attachments/assets/43a975a6-a7c6-4dbe-87e2-ae0c86ec48a3" />
+ |
 
 ---
 
