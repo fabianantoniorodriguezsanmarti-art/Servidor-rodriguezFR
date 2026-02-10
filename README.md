@@ -108,4 +108,38 @@ pip install -r odoo/requirements.txt
 
 Ejecución de Odoo
 ./odoo-bin
+```
+## Problemas y Soluciones
+## Problemas detectados
 
+Conflictos con Python 3
+
+Errores al instalar dependencias desde requirements.txt
+
+Odoo no iniciaba correctamente
+
+Entorno virtual no activado correctamente
+
+Error Apache: Service Unavailable
+
+# Soluciones aplicadas
+
+Activación correcta del entorno virtual Python
+
+Reinstalación de dependencias
+
+Configuración de Apache como proxy hacia Odoo
+
+Reinicio y verificación de servicios
+
+# Resultado final:
+
+Apache funcionando correctamente
+|<img width="886" height="600" alt="image" src="https://github.com/user-attachments/assets/6cd83642-6b63-4377-8865-852b20a629b1" />|
+|<img width="938" height="431" alt="image" src="https://github.com/user-attachments/assets/6bda7f96-5f0c-41ff-b516-d52a0f04e31d" />|
+
+Odoo accesible desde el dominio
+|<img width="1857" height="1092" alt="image" src="https://github.com/user-attachments/assets/6d84a6cb-94a2-425f-aecb-cce86a595e8d" />|
+
+DNS resolviendo correctamente
+|<img width="886" height="222" alt="image" src="https://github.com/user-attachments/assets/d1bfd530-5f1b-4ba9-b3d5-888b0b0abaef" />|
